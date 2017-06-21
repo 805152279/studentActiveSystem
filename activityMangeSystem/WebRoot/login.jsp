@@ -53,7 +53,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                &nbsp;&nbsp;请选择您的身份&nbsp;&nbsp;
                   <select name="select">
                   <option value ="admin">管理员</option>
-                  <option value ="user">学生55555</option>
+                  <option value ="user">学生360</option>
               </select>
               </div>
               <div style="padding:20px;"><input type="submit" class="button button-block bg-main text-big input-big" value="登录"></div>
