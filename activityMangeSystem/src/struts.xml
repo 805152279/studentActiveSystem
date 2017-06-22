@@ -10,7 +10,13 @@
 </action>
 
 <action name="LoginAction" method="login" class="com.action.LoginAction">
-<result name="SUCCESS">/admin.jsp</result>
+<result >/admin.jsp</result>
+<result name="error">/error.jsp</result>
+</action>
+
+<action name="PassAction" method="change" class="com.action.PassAction">
+<result >/admin.jsp</result>
+<result name="error">/admin.jsp</result>
 </action>
 
 </package>

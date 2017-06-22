@@ -16,6 +16,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <link rel="stylesheet" href="css/admin.css">
     <script src="js/jquery.js"></script>
     <script src="js/pintuer.js"></script>  
+
 </head>
 <body>
 <div class="bg"></div>
@@ -37,7 +38,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     </div>
                     <div class="form-group">
                         <div class="field field-icon-right">
-                            <input type="userpassword" class="input input-big" name="password" placeholder="登录密码" data-validate="required:请填写密码" />
+                            <input type="password" class="input input-big" name="userpassword" placeholder="登录密码" data-validate="required:请填写密码" />
                             <span class="icon icon-key margin-small"></span>
                         </div>
                     </div>
@@ -53,7 +54,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                &nbsp;&nbsp;请选择您的身份&nbsp;&nbsp;
                   <select name="select">
                   <option value ="admin">管理员</option>
-                  <option value ="user">学生360</option>
+                  <option value ="user">学生</option>
               </select>
               </div>
               <div style="padding:20px;"><input type="submit" class="button button-block bg-main text-big input-big" value="登录"></div>
