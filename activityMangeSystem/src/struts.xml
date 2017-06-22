@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
 <struts>
+<package name="default" namespace="/" extends="struts-default">
+
+
+<default-action-ref name="index"></default-action-ref>  <!-- 默认action-->
+<action name="index">
+<result >/error.jsp</result>
+</action>
+
+<action name="LoginAction" method="login" class="com.action.LoginAction">
+<result name="SUCCESS">/admin.jsp</result>
+</action>
+
+</package>
 
 </struts>    
