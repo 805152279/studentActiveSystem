@@ -1,5 +1,28 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
 <struts>
+<package name="default"  extends="json-default">
+
+
+<default-action-ref name="index"></default-action-ref>  <!-- 默认action-->
+<action name="index">
+<result >/error.jsp</result>
+</action>
+
+<action name="LoginAction" method="login" class="com.action.LoginAction">
+<result type="json"></result>
+<result name="error" type="json"></result>
+</action>
+
+<action name="PassAction" method="change" class="com.action.PassAction">
+<result type="json"></result>
+<result name="error" type="json"></result>
+</action>
+
+<action name="Student" method="selectStudent" class="com.action.gotoAction">
+<result>/mstu.jsp</result>
+</action>
+
+</package>
 
 </struts>    

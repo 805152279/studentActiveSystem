@@ -4,6 +4,21 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
 	http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+		<servlet>  
+    <servlet-name>Kaptcha</servlet-name>  
+    <servlet-class>com.google.code.kaptcha.servlet.KaptchaServlet</servlet-class>  
+    <init-param>  
+   <param-name>kaptcha.border</param-name>  
+   <param-value>no</param-value>  
+  </init-param>  
+ 
+</servlet> 
+
+ 
+<servlet-mapping>  
+    <servlet-name>Kaptcha</servlet-name>  
+    <url-pattern>/kaptcha.jpg</url-pattern>  
+</servlet-mapping>
   <display-name></display-name>	
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
