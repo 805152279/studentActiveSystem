@@ -16,12 +16,32 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <link rel="stylesheet" href="css/admin.css">
 <script src="js/jquery.js"></script>
 <script src="js/pintuer.js"></script>
+<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script> 
+  <script type="text/javascript">  
+    $(function() {  
+     $("#addButton").click(function() { //按钮的id名字是addButton          
+        $.ajax({  
+    type: "POST",  
+    url: "PassAction", //这里写的是action的名字,设置了namespace会出错  
+    data: {"password":$("#password").val(),"newpass": $("#neww").val()},
+    dataType:"text", //ajax返回值设置为text（json格式也可用它返回，可打印出结果，也可设置成json）  
+    success: function(json){    
+    var obj = $.parseJSON(json);  //使用这个方法解析json  
+    var state_value = obj.result;  //result是和action中定义的result变量的get方法对应的  
+
+    if(state_value=="true"){ alert("收到成功");}
+    else{ $("#tishi").show();}
+    }
+      });  
+     });  
+   });  
+</script> 
 </head>
 <body>
 <div class="panel admin-panel">
   <div class="panel-head"><strong><span class="icon-key"></span> 修改管理员密码</strong></div>
   <div class="body-content">
-    <form method="post" class="form-x" action="PassAction.action">
+    <form  class="form-x" >
       <div class="form-group">
         <div class="label">
           <label for="sitename">管理员帐号：</label>
@@ -45,7 +65,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           <label for="sitename">新密码：</label>
         </div>
         <div class="field">
-          <input type="password" class="input w50" name="newpass" size="50" placeholder="请输入新密码" data-validate="required:请输入新密码,length#>=5:新密码不能小于5位" />         
+          <input type="password" class="input w50" id="neww" name="newpass" size="50" placeholder="请输入新密码" data-validate="required:请输入新密码,length#>=5:新密码不能小于5位" />         
         </div>
       </div>
       <div class="form-group">
@@ -59,10 +79,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       
       <div class="form-group">
         <div class="label">
-          <label></label>
+          <label></label>         
         </div>
-        <div class="field">
-          <button class="button bg-main icon-check-square-o" type="submit"> 提交</button>   
+        <div id="tishi" style="padding:10px;"><img src="images/tan.png" alt=""><span style="font-size:26px;color:red;">原始密码错误</span></div>
+        <div class="field" style="margin-left:170px;">         
+        <input type="button" class="button bg-main icon-check-square-o" id="addButton" value="提交">
         </div>
       </div>      
     </form>

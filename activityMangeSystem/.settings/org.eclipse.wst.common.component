@@ -5,5 +5,6 @@
         <property name="context-root" value="/activityMangeSystem"/>
         <property name="java-output-path" value="/activityMangeSystem/WebRoot/WEB-INF/classes"/>
         <property name="me-merge-utility-modules" value="true"/>
+        <property name="me-struts-base-pkg"/>
     </wb-module>
 </project-modules>
