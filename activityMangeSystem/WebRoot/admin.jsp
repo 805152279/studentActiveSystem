@@ -31,7 +31,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <li><a href="page.html" target="right"><span class="icon-caret-right"></span>管理通知</a></li>  
     <li><a href="Student.action" target="right"><span class="icon-caret-right"></span>管理学生</a></li>   
     <li><a href="book.html" target="right"><span class="icon-caret-right"></span>管理活动</a></li>     
-    <li><a href="paiming.jsp" target="right"><span class="icon-caret-right"></span>活动排名</a></li>
+    <li><a href="Score.action" target="right"><span class="icon-caret-right"></span>活动排名</a></li>
     <li><a href="pass.jsp" target="right"><span class="icon-caret-right"></span>修改密码</a></li>
   </ul>   
 </div>

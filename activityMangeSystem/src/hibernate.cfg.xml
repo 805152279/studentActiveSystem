@@ -6,16 +6,25 @@
 <hibernate-configuration>
 
 	<session-factory>
-	<property name="javax.persistence.validation.mode">none</property>
-		<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
-		<property name="connection.url">jdbc:mysql://localhost:3306/hyzdb</property>
+		<property name="javax.persistence.validation.mode">
+			none
+		</property>
+		<property name="dialect">
+			org.hibernate.dialect.MySQLDialect
+		</property>
+		<property name="connection.url">
+			jdbc:mysql://localhost:3306/hyzdb
+		</property>
 		<property name="connection.username">root</property>
 		<property name="connection.password">1234</property>
-		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="connection.driver_class">
+			com.mysql.jdbc.Driver
+		</property>
 		<property name="myeclipse.connection.profile">hao</property>
 		<property name="show_sql">true</property>
 		<property name="format_sql">true</property>
 		<mapping resource="com/bean/User.hbm.xml" />
+		<mapping resource="com/bean/Active.hbm.xml" />
 
 	</session-factory>
 

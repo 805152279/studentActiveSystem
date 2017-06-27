@@ -23,6 +23,10 @@
 <result>/mstu.jsp</result>
 </action>
 
+<action name="Score" method="selectActive" class="com.action.scoreAction">
+<result>/paiming.jsp</result>
+</action>
+
 </package>
 
 </struts>    
