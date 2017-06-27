@@ -1,4 +1,4 @@
-<%@page import="com.bean.User"%>
+<%@page import="com.bean.Active"%>
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
 String path = request.getContextPath();
@@ -20,34 +20,32 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </head>
 <body>
 <div class="panel admin-panel">
-  <div class="panel-head"><strong class="icon-reorder"> 内容列表</strong></div>
-  <div class="padding border-bottom">  
-  <a class="button border-yellow" href=""><span class="icon-plus-square-o"></span> 添加内容</a>
-  <input type="text" placeholder="请输入搜索关键字" name="keywords" class="input" style="left-margin:20px;width:250px; line-height:17px;display:inline-block" />
-          <a href="javascript:void(0)" class="button border-main icon-search" onclick="changesearch()" > 搜索</a>
-  </div> 
   <table class="table table-hover text-center">
-  
     <tr>
-      <th width="5%">学号</th>     
-      <th>姓名</th>  
-      <th>剩余票数</th>     
+      <th width="15%">排名</th> 
+      <th >活动名称</th>     
+      <th>票数</th>           
       <th width="250">操作</th>
     </tr>
-  <%
-	 List<User> students=(List)session.getAttribute("students");
-  for(User user:students){
+   
+    <%
+     int i=1;
+	 List<Active> actives=(List)session.getAttribute("students");
+  for(Active active:actives){
 	  out.print("<tr>"+
-      "<td>"+user.getUserid()+"</td>"+
-	  "<td>"+user.getUsername()+"</td>"+
-      "<td>"+user.getVotenum()+"</td>"+
+	  "<td>"+i+"</td>"+
+      "<td>"+active.getActivename()+"</td>"+
+	  "<td>"+active.getNumber()+"</td>"+      
       "<td>"+
       "<div class=\"button-group\">"+
       "<a type=\"button\" class=\"button border-main\" href=\"#\"><span class=\"icon-edit\"></span>修改</a>"+
       "<a class=\"button border-red\" href=\"javascript:void(0)\" onclick=\"return del(17)\"><span class=\"icon-trash-o\"></span> 删除</a>"+
      "</div></td></tr>" );
+     i++;
   }
   %>
+    
+
     
   </table>
 </div>

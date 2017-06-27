@@ -16,47 +16,77 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <link rel="stylesheet" href="css/admin.css">
     <script src="js/jquery.js"></script>
     <script src="js/pintuer.js"></script>  
+    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script> 
+  <script type="text/javascript">  
+    $(function() {  
+     $("#addButton").click(function() { //按钮的id名字是addButton          
+        $.ajax({  
+    type: "POST",  
+    url: "LoginAction", //这里写的是action的名字,设置了namespace会出错  
+    data: {"id":$("#idd").val(),"password": $("#mima").val(),"yanzheng": $("#yanzhengma").val()},
+    dataType:"text", //ajax返回值设置为text（json格式也可用它返回，可打印出结果，也可设置成json）  
+    success: function(json){    
+    var obj = $.parseJSON(json);  //使用这个方法解析json  
+    var state_value = obj.result;  //result是和action中定义的result变量的get方法对应的  
+    var lev=obj.level;
+    if(state_value=="no"){$("#yshi").show();return;}
+    if(state_value=="true"){ 
+    if(lev=="1"){
+    window.location.href ='admin.jsp'}    
+    else window.location.href ='user.jsp'
+    }
+    else{
+    $("#tishi").show();
+        }
+    }
+      });  
+     });  
+   });  
+</script>
+
 </head>
 <body>
-<div class="bg"></div>
+<div class="bg">
+</div>
+</div>
 <div class="container">
     <div class="line bouncein">
         <div class="xs6 xm4 xs3-move xm4-move">
             <div style="height:80px;"></div>
             <div class="media media-y margin-big-bottom">           
             </div>         
-            <form action="index.html" method="post">
+            <form>
             <div class="panel loginbox">
-                <div class="text-center margin-big padding-big-top"><h1>后台管理中心</h1></div>
+                <div class="text-center margin-big padding-big-top"><h1>登录平台</h1></div>
                 <div class="panel-body" style="padding:30px; padding-bottom:10px; padding-top:10px;">
+               
                     <div class="form-group">
                         <div class="field field-icon-right">
-                            <input type="text" class="input input-big" name="name" placeholder="登录账号" data-validate="required:请填写账号" />
+                            <input type="text" class="input input-big" id="idd" name="userid" placeholder="登录账号" data-validate="required:请填写账号" />
                             <span class="icon icon-user margin-small"></span>
+                            
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="field field-icon-right">
-                            <input type="password" class="input input-big" name="password" placeholder="登录密码" data-validate="required:请填写密码" />
+                            <input type="password" class="input input-big" id="mima"name="userpassword" placeholder="登录密码" data-validate="required:请填写密码" />
                             <span class="icon icon-key margin-small"></span>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="field">
-                            <input type="text" class="input input-big" name="code" placeholder="填写右侧的验证码" data-validate="required:请填写右侧的验证码" />
-                           <img src="images/passcode.jpg" alt="" width="100" height="32" class="passcode" style="height:43px;cursor:pointer;" onclick="this.src=this.src+'?'">  
+                            <input type="text" id="yanzhengma"class="input input-big" name="code" placeholder="填写右侧的验证码" data-validate="required:请填写右侧的验证码" />
+                           <img src="kaptcha.jpg" alt="" width="100" height="32" class="passcode" style="height:43px;cursor:pointer;" onclick="this.src=this.src+'?'">  
                                                    
                         </div>
                     </div>
                 </div>
-                <div  class="shenfen" style="padding:20px;font-size:19px;">
-               &nbsp;&nbsp;请选择您的身份&nbsp;&nbsp;
-                  <select name="select">
-                  <option value ="admin">管理员</option>
-                  <option value ="user">学生360</option>
-              </select>
-              </div>
-              <div style="padding:20px;"><input type="submit" class="button button-block bg-main text-big input-big" value="登录"></div>
+               
+              <br />
+              <div id="tishi" style="margin-left:70px;"><img src="images/tan.png" alt=""><span style="font-size:26px;color:red;">用户名或密码错误</span></div>
+              <div id="yshi" style="margin-left:70px;"><img src="images/tan.png" alt=""><span style="font-size:26px;color:red;">验证码错误</span></div>
+              <div style="padding:20px;">
+                            <input type="button" id="addButton" class="button button-block bg-main text-big input-big" value="登录"></div>
             </div>
             </form>          
         </div>
