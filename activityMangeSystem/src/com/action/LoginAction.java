@@ -2,20 +2,15 @@ package com.action;
 
 import hib.com.HibernateSessionFactory;
 
-
 import java.util.Iterator;
 import java.util.List;
-
-import javax.servlet.http.HttpServletResponse;
 
 import org.apache.struts2.ServletActionContext;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import com.bean.User;
-import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
-import com.opensymphony.xwork2.ModelDriven;
 
 public class LoginAction extends ActionSupport {
 	private String id;
@@ -54,14 +49,20 @@ public String getId() {
 		this.password = password;
 	}
 private User user=new User();
+public String check(){
+	result="check";
+	String kaptchaExpected=(String) ServletActionContext.getRequest().getSession().getAttribute(com.google.code.kaptcha.Constants.KAPTCHA_SESSION_KEY);
+	if(!kaptchaExpected.equals(yanzheng)){
+		result="no";
+	}
+	return SUCCESS;
+}
 public String login(){
-	
-	Session session = HibernateSessionFactory.getSession();  
+	Session session = HibernateSessionFactory.getSession(); 
 	Transaction tx = session.beginTransaction(); 
 	String kaptchaExpected=(String) ServletActionContext.getRequest().getSession().getAttribute(com.google.code.kaptcha.Constants.KAPTCHA_SESSION_KEY);
 	if(!kaptchaExpected.equals(yanzheng)){
 		result="no";
-		return SUCCESS;
 	}
 	boolean has = false;
 	try {
@@ -103,11 +104,4 @@ public String login(){
 	}
 }
 
-
-
-
-
-
-	
-	
 }

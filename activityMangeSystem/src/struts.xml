@@ -14,9 +14,23 @@
 <result name="error" type="json"></result>
 </action>
 
+<action name="orderAction" method="order" class="com.action.orderAction">
+<result type="json"></result>
+</action>
+
+<action name="CheckAction" method="check" class="com.action.LoginAction">
+<result type="json"></result>
+<result name="error" type="json"></result>
+</action>
+
 <action name="PassAction" method="change" class="com.action.PassAction">
 <result type="json"></result>
 <result name="error" type="json"></result>
+</action>
+
+<action name="Cancel" method="cancel" class="com.action.CancelAction">
+<result type="json"></result>
+
 </action>
 
 <action name="Student" method="selectStudent" class="com.action.gotoAction">
@@ -25,6 +39,22 @@
 
 <action name="Score" method="selectActive" class="com.action.scoreAction">
 <result>/paiming.jsp</result>
+</action>
+
+<action name="Scores" method="selectActive" class="com.action.scoreAction">
+<result>/spaiming.jsp</result>
+</action>
+
+<action name="Active" method="selectActive" class="com.action.scoreAction">
+<result>/active.jsp</result>
+</action>
+
+<action name="Actives" method="seeActive" class="com.action.scoreAction">
+<result>/active.jsp</result>
+</action>
+
+<action name="Myorder" method="see" class="com.action.MyAction">
+<result>/mactivity.jsp</result>
 </action>
 
 </package>

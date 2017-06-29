@@ -26,11 +26,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <div class="leftnav-title"><strong><span class="icon-list"></span>菜单列表</strong></div>
   <h2><span class="icon-user"></span>基本设置</h2>
   <ul style="display:block">
-    <li><a href="mclassroom.jsp" target="right"><span class="icon-caret-right"></span>查看活动</a></li>
-    <li><a href="mactivity.jsp" target="right"><span class="icon-caret-right"></span>预约活动</a></li>
+    <li><a href="Actives.action" target="right"><span class="icon-caret-right"></span>查看活动</a></li>
+    <li><a href="Myorder.action" target="right"><span class="icon-caret-right"></span>我的预约</a></li>
     <li><a href="page.html" target="right"><span class="icon-caret-right"></span>管理活动</a></li>  
     <li><a href="adv.html" target="right"><span class="icon-caret-right"></span>活动交流</a></li>        
-    <li><a href="column.html" target="right"><span class="icon-caret-right"></span>活动排名</a></li>
+    <li><a href="Scores.action" target="right"><span class="icon-caret-right"></span>活动排名</a></li>
     <li><a href="pass.jsp" target="right"><span class="icon-caret-right"></span>修改密码</a></li>
   </ul>   
 </div>

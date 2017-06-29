@@ -17,6 +17,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <script src="js/jquery.js"></script>
     <script src="js/pintuer.js"></script>  
     <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script> 
+    
   <script type="text/javascript">  
     $(function() {  
      $("#addButton").click(function() { //按钮的id名字是addButton          
@@ -43,7 +44,36 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
      });  
    });  
 </script>
-
+<script type="text/javascript">
+        function addEvent(element,e,fn) {
+            //firefox使用addEventListener，来添加事件
+            if(element.addEventListener) {
+                element.addEventListener(e,fn,false);
+            }
+            //ie使用attachEvent，来添加事件
+            else {
+                element.attachEvent("on"+e,fn);
+            }
+        }
+        window.onload = function(){
+            var checked=document.getElementById("yanzhengma");
+            addEvent(checked,"input",check);
+        }
+       function check(){
+    	   $.ajax({
+    		   type:"POST",
+    		   url:"CheckAction",
+    		   data:{"id":$("#idd").val(),"password": $("#mima").val(),"yanzheng": $("#yanzhengma").val()},
+    		   dataType:"text",
+    		   success:function(json){
+    			   var obj=$.parseJSON(json);
+    			   var checkr=obj.result;
+    			   if(checkr=="no"){$("#yshi").show();return;}
+    			   if(checkr=="check"){$("#yshi").hide();return;}
+    		   }
+    	   });
+       }
+    </script>
 </head>
 <body>
 <div class="bg">

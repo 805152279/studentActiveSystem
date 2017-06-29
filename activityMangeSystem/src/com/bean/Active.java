@@ -1,6 +1,6 @@
 package com.bean;
 
-import java.sql.Timestamp;
+import java.util.Date;
 
 /**
  * Active entity. @author MyEclipse Persistence Tools
@@ -16,8 +16,8 @@ public class Active implements java.io.Serializable {
 	private String roomid;
 	private String number;
 	private String abstract_;
-	private Timestamp starttime;
-	private Timestamp endtime;
+	private Date starttime;
+	private Date endtime;
 	private Integer isdeleted;
 
 	// Constructors
@@ -37,8 +37,8 @@ public class Active implements java.io.Serializable {
 
 	/** full constructor */
 	public Active(String activeid, String activename, String userid,
-			String roomid, String number, String abstract_,
-			Timestamp starttime, Timestamp endtime, Integer isdeleted) {
+			String roomid, String number, String abstract_, Date starttime,
+			Date endtime, Integer isdeleted) {
 		this.activeid = activeid;
 		this.activename = activename;
 		this.userid = userid;
@@ -100,19 +100,19 @@ public class Active implements java.io.Serializable {
 		this.abstract_ = abstract_;
 	}
 
-	public Timestamp getStarttime() {
+	public Date getStarttime() {
 		return this.starttime;
 	}
 
-	public void setStarttime(Timestamp starttime) {
+	public void setStarttime(Date starttime) {
 		this.starttime = starttime;
 	}
 
-	public Timestamp getEndtime() {
+	public Date getEndtime() {
 		return this.endtime;
 	}
 
-	public void setEndtime(Timestamp endtime) {
+	public void setEndtime(Date endtime) {
 		this.endtime = endtime;
 	}
 

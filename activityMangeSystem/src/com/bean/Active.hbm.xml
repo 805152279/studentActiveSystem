@@ -25,11 +25,11 @@
         <property name="abstract_" type="java.lang.String">
             <column name="abstract" length="65535" />
         </property>
-        <property name="starttime" type="java.sql.Timestamp">
-            <column name="starttime" length="19" />
+        <property name="starttime" type="java.util.Date">
+            <column name="starttime" length="10" />
         </property>
-        <property name="endtime" type="java.sql.Timestamp">
-            <column name="endtime" length="19" />
+        <property name="endtime" type="java.util.Date">
+            <column name="endtime" length="10" />
         </property>
         <property name="isdeleted" type="java.lang.Integer">
             <column name="isdeleted" not-null="true" />

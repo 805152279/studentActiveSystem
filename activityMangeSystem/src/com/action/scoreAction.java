@@ -17,9 +17,9 @@ import com.bean.Active;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class scoreAction extends ActionSupport {
+	
 	private List<Active> actives=new ArrayList<Active>();
 	public String selectActive(){
-				
 		Session session = HibernateSessionFactory.getSession();  
 		Transaction tx = session.beginTransaction(); 
 		try {
@@ -31,6 +31,43 @@ public class scoreAction extends ActionSupport {
 	        while (it.hasNext()) {
 	            Active user =(Active) it.next(); 
 	           // if(user.getUserlevel()==1)continue;
+	            System.out.println(user.getActiveid());
+	            actives.add(user);
+	            }
+
+	        }
+	    
+	    tx.commit();
+	    session.clear();
+	}
+	catch (Exception e) {   
+		tx.rollback();  
+	    e.printStackTrace();  
+	}finally{  
+	    session.close();  
+	}  
+		
+		
+		
+	HttpSession session1=ServletActionContext.getRequest().getSession();
+	session1.setAttribute("students", actives);
+	return SUCCESS;
+
+
+		
+	}
+	
+	public String seeActive(){
+		Session session = HibernateSessionFactory.getSession();  
+		Transaction tx = session.beginTransaction(); 
+		try {
+		    List catlist = null;
+	    catlist =session.createQuery("from Active").list();
+	         if (catlist != null) {
+	        Iterator it= catlist.iterator();
+	       
+	        while (it.hasNext()) {
+	            Active user =(Active) it.next();      
 	            actives.add(user);
 	            }
 

@@ -25,6 +25,7 @@
 		<property name="format_sql">true</property>
 		<mapping resource="com/bean/User.hbm.xml" />
 		<mapping resource="com/bean/Active.hbm.xml" />
+		<mapping resource="com/bean/Canjia.hbm.xml" />
 
 	</session-factory>
 
